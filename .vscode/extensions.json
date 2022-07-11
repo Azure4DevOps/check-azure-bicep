@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "esbenp.prettier-vscode",
+    "ms-vscode.PowerShell",
+    "ms-python.python",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "msazurermtools.azurerm-vscode-tools",
+  ],
+  "unwantedRecommendations": []
+}
