@@ -8,7 +8,7 @@
     "VisualStudioExptTeam.vscodeintellicode",
     "ms-azuretools.vscode-docker",
     "ms-vscode.vscode-typescript-tslint-plugin",
-    "msazurermtools.azurerm-vscode-tools",
+    "msazurermtools.azurerm-vscode-tools"
   ],
   "unwantedRecommendations": []
 }

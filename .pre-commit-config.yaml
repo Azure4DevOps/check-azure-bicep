@@ -4,9 +4,9 @@ repos:
   hooks:
   - id: check-byte-order-marker
   - id: check-case-conflict
-  - id: end-of-file-fixer
+          # - id: end-of-file-fixer
   - id: mixed-line-ending
-    args: ["--fix=lf"]
+    args: [--fix=lf]
   - id: check-json
   - id: check-yaml
   - id: check-xml
@@ -14,10 +14,11 @@ repos:
   - id: check-merge-conflict
   - id: trailing-whitespace
     args: [--markdown-linebreak-ext=md]
-  - id: pretty-format-json
-    args: [--autofix, --no-sort-keys]
-  # - id: no-commit-to-branch
-  #   args: ["--branch", "develop", "--branch", "master"]
+          # - id: pretty-format-json
+          #   args:
+          #     [--autofix, --no-sort-keys]
+          # - id: no-commit-to-branch
+          #   args: ["--branch", "develop", "--branch", "master"]
 - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
   rev: 2.4.0
   hooks:
@@ -38,8 +39,8 @@ repos:
 - repo: https://github.com/KuriharaJun/pre-commit-hooks-dotnet-core
   rev: v0.3
   hooks:
-    - id: dotnet-format
-    - id: dotnet-test
+  - id: dotnet-format
+  - id: dotnet-test
 
 - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
   rev: 2.4.0
@@ -49,21 +50,21 @@ repos:
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
   hooks:
-    - id: isort
-      args: ["--profile", "black"]
+  - id: isort
+    args: [--profile, black]
 - repo: https://github.com/psf/black
   rev: 22.6.0
   hooks:
-    - id: black
-      files: \.(py|pyi)$
-      types_or: [python, pyi, text]
-      args: ["--line-length=120"]
-- repo: https://github.com/pre-commit/mirrors-prettier
-  rev: v2.7.1
-  hooks:
-    - id: prettier
-      files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
-      exclude: 'azure-pipelines.*\.(yml)'
+  - id: black
+    files: \.(py|pyi)$
+    types_or: [python, pyi, text]
+    args: [--line-length=120]
+  # - repo: https://github.com/pre-commit/mirrors-prettier
+  #   rev: v2.7.1
+  #   hooks:
+  #     - id: prettier
+  #       files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
+  #       exclude: azure-pipelines.*\.(yml)
 - repo: https://github.com/codespell-project/codespell
   rev: v2.1.0
   hooks:
@@ -78,9 +79,9 @@ repos:
   rev: v8.2.0
   hooks:
   - id: gitleaks
-# - repo: https://github.com/JanuszNowak/check-azure-bicep
-- repo: D:\repos\github\janusznowak\check-azure-bicep\
-  rev: "develop"
-  hooks:
-  - id: check-azure-bicep
 
+          # - repo: https://github.com/JanuszNowak/check-azure-bicep
+          # #- repo: D:\repos\github\janusznowak\check-azure-bicep\
+          #   rev: "master"
+          #   hooks:
+          #   - id: check-azure-bicep

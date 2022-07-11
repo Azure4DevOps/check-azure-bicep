@@ -1,7 +1,7 @@
 - id: check-azure-bicep
   name: az bicep build
-  description: 'Validate Azure Bicep'
+  description: Azure Bicep Build
   entry: az bicep build
-  language: check-azure-bicep
+  language: script
   files: ^(\.)?.(bicep)$
-  types: [text]
+  types: [bicep]
