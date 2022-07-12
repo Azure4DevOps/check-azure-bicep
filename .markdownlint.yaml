@@ -33,26 +33,31 @@ MD006: true
 # MD007/ul-indent - Unordered list indentation
 MD007:
   # Spaces for indent
-  indent: 2
-  # Whether to indent the first level of the list
-  start_indented: false
-  # Spaces for first level indent (when start_indented is set)
+  indent:
+    2
+    # Whether to indent the first level of the list
+  start_indented:
+    false
+    # Spaces for first level indent (when start_indented is set)
   start_indent: 2
 
 # MD009/no-trailing-spaces - Trailing spaces
 MD009:
   # Spaces for line break
-  br_spaces: 2
-  # Allow spaces for empty lines in list items
-  list_item_empty_lines: false
-  # Include unnecessary breaks
+  br_spaces:
+    2
+    # Allow spaces for empty lines in list items
+  list_item_empty_lines:
+    false
+    # Include unnecessary breaks
   strict: false
 
 # MD010/no-hard-tabs - Hard tabs
 MD010:
   # Include code blocks
-  code_blocks: true
-  # Number of spaces for each hard tab
+  code_blocks:
+    true
+    # Number of spaces for each hard tab
   spaces_per_tab: 1
 
 # MD011/no-reversed-links - Reversed link syntax
@@ -66,22 +71,30 @@ MD012:
 # MD013/line-length - Line length
 MD013:
   # Number of characters
-  line_length: 999
-  # Number of characters for headings
-  heading_line_length: 180
-  # Number of characters for code blocks
-  code_block_line_length: 180
-  # Include code blocks
-  code_blocks: true
-  # Include tables
-  tables: true
-  # Include headings
-  headings: true
-  # Include headings
-  headers: true
-  # Strict length checking
-  strict: false
-  # Stern length checking
+  line_length:
+    999
+    # Number of characters for headings
+  heading_line_length:
+    180
+    # Number of characters for code blocks
+  code_block_line_length:
+    180
+    # Include code blocks
+  code_blocks:
+    true
+    # Include tables
+  tables:
+    true
+    # Include headings
+  headings:
+    true
+    # Include headings
+  headers:
+    true
+    # Strict length checking
+  strict:
+    false
+    # Stern length checking
   stern: false
 
 # MD014/commands-show-output - Dollar signs used before commands without showing output
@@ -102,8 +115,9 @@ MD021: true
 # MD022/blanks-around-headings/blanks-around-headers - Headings should be surrounded by blank lines
 MD022:
   # Blank lines above heading
-  lines_above: 1
-  # Blank lines below heading
+  lines_above:
+    1
+    # Blank lines below heading
   lines_below: 1
 
 # MD023/heading-start-left/header-start-left - Headings must start at the beginning of the line
@@ -112,15 +126,17 @@ MD023: true
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD024:
   # Only check sibling headings
-  allow_different_nesting: false
-  # Only check sibling headings
+  allow_different_nesting:
+    false
+    # Only check sibling headings
   siblings_only: false
 
 # MD025/single-title/single-h1 - Multiple top-level headings in the same document
 MD025:
   # Heading level
-  level: 1
-  # RegExp for matching title in front matter
+  level:
+    1
+    # RegExp for matching title in front matter
   front_matter_title: ^\s*title\s*[:=]
 
 # MD026/no-trailing-punctuation - Trailing punctuation in heading
@@ -142,12 +158,15 @@ MD029:
 # MD030/list-marker-space - Spaces after list markers
 MD030:
   # Spaces for single-line unordered list items
-  ul_single: 1
-  # Spaces for single-line ordered list items
-  ol_single: 1
-  # Spaces for multi-line unordered list items
-  ul_multi: 1
-  # Spaces for multi-line ordered list items
+  ul_single:
+    1
+    # Spaces for single-line ordered list items
+  ol_single:
+    1
+    # Spaces for multi-line unordered list items
+  ul_multi:
+    1
+    # Spaces for multi-line ordered list items
   ol_multi: 1
 
 # MD031/blanks-around-fences - Fenced code blocks should be surrounded by blank lines
@@ -191,8 +210,9 @@ MD040: true
 # MD041/first-line-heading/first-line-h1 - First line in a file should be a top-level heading
 MD041:
   # Heading level
-  level: 1
-  # RegExp for matching title in front matter
+  level:
+    1
+    # RegExp for matching title in front matter
   front_matter_title: ^\s*title\s*[:=]
 
 # MD042/no-empty-links - No empty links
@@ -208,8 +228,9 @@ MD042: true
 # MD044/proper-names - Proper names should have the correct capitalization
 MD044:
   # List of proper names
-  names: []
-  # Include code blocks
+  names:
+    []
+    # Include code blocks
   code_blocks: true
 
 # MD045/no-alt-text - Images should have alternate text (alt text)

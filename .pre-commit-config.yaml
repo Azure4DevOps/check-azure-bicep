@@ -1,87 +1,75 @@
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.3.0
-  hooks:
-  - id: check-byte-order-marker
-  - id: check-case-conflict
-          # - id: end-of-file-fixer
-  - id: mixed-line-ending
-    args: [--fix=lf]
-  - id: check-json
-  - id: check-yaml
-  - id: check-xml
-  - id: check-executables-have-shebangs
-  - id: check-merge-conflict
-  - id: trailing-whitespace
-    args: [--markdown-linebreak-ext=md]
-          # - id: pretty-format-json
-          #   args:
-          #     [--autofix, --no-sort-keys]
-          # - id: no-commit-to-branch
-          #   args: ["--branch", "develop", "--branch", "master"]
-- repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-  rev: 2.4.0
-  hooks:
-  - id: editorconfig-checker
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-json
+      - id: check-yaml
+      - id: check-xml
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.4.0
+    hooks:
+      - id: editorconfig-checker
 
-- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.4.0
-  hooks:
-  - id: pretty-format-yaml
-    args: [--autofix, --indent, '2']
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.17.0
+    hooks:
+      - id: check-github-workflows
+      - id: check-github-actions
+      - id: check-azure-pipelines
+  - repo: https://github.com/KuriharaJun/pre-commit-hooks-dotnet-core
+    rev: v0.3
+    hooks:
+      - id: dotnet-format
+      - id: dotnet-test
 
-- repo: https://github.com/sirosen/check-jsonschema
-  rev: 0.17.0
-  hooks:
-  - id: check-github-workflows
-  - id: check-github-actions
-  - id: check-azure-pipelines
-- repo: https://github.com/KuriharaJun/pre-commit-hooks-dotnet-core
-  rev: v0.3
-  hooks:
-  - id: dotnet-format
-  - id: dotnet-test
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.4.0
+    hooks:
+      - id: editorconfig-checker
 
-- repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-  rev: 2.4.0
-  hooks:
-  - id: editorconfig-checker
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.7.1
+    hooks:
+      - id: prettier
+        files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
+        exclude: azure-pipelines.*\.(yml)
 
-- repo: https://github.com/pycqa/isort
-  rev: 5.10.1
-  hooks:
-  - id: isort
-    args: [--profile, black]
-- repo: https://github.com/psf/black
-  rev: 22.6.0
-  hooks:
-  - id: black
-    files: \.(py|pyi)$
-    types_or: [python, pyi, text]
-    args: [--line-length=120]
-  # - repo: https://github.com/pre-commit/mirrors-prettier
-  #   rev: v2.7.1
-  #   hooks:
-  #     - id: prettier
-  #       files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
-  #       exclude: azure-pipelines.*\.(yml)
-- repo: https://github.com/codespell-project/codespell
-  rev: v2.1.0
-  hooks:
-  - id: codespell
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.1.0
+    hooks:
+      - id: codespell
 
-- repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.31.1
-  hooks:
-  - id: markdownlint
-  - id: markdownlint-fix
-- repo: https://github.com/zricethezav/gitleaks
-  rev: v8.2.0
-  hooks:
-  - id: gitleaks
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.31.1
+    hooks:
+      - id: markdownlint
+      - id: markdownlint-fix
+
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.8.12
+    hooks:
+      - id:
+          gitleaks
 
           # - repo: https://github.com/JanuszNowak/check-azure-bicep
-          # #- repo: D:\repos\github\janusznowak\check-azure-bicep\
           #   rev: "master"
           #   hooks:
           #   - id: check-azure-bicep
+
+  - repo: local
+    hooks:
+      - id: check-azure-bicep
+        name: check-azure-bicep
+        language: system
+        #entry: powershell -File ./src/az_bicep_build.ps1
+        entry: pwsh -File ./src/az_bicep_build.ps1
+        pass_filenames: true
+        files: .*.bicep$

@@ -1,7 +1,6 @@
 - id: check-azure-bicep
-  name: az bicep build
-  description: Azure Bicep Build
-  entry: az bicep build
-  language: script
-  files: ^(\.)?.(bicep)$
-  types: [bicep]
+  name: check-azure-bicep
+  language: system
+  entry: pwsh -File ./src/az_bicep_build.ps1
+  pass_filenames: true
+  files: .*.bicep$
