@@ -1,0 +1,28 @@
+variables:
+  system.debug: true
+
+trigger:
+- master
+- develop
+- release/*
+- feature/*
+- hotfix/*
+
+pool:
+  vmImage: ubuntu-latest
+  
+jobs:
+- job: AgentJobMain
+  displayName: Agent job - Main
+  steps:
+  - bash: |
+      if [ -f .pre-commit-config.yaml ]; then
+        echo "##vso[task.setVariable variable=FILEEXISTS_PRECOMMIT]true"
+      fi
+    displayName: Check if .pre-commit-config.yaml exist
+  - script: |
+      pip install pre-commit
+      pre-commit --version
+      pre-commit run --all-files
+    condition: eq(variables.FILEEXISTS_PRECOMMIT, 'true')
+    displayName: Execture pre-commit
