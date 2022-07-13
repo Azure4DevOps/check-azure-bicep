@@ -10,7 +10,7 @@ trigger:
 
 jobs:
 - job: AgentJobMain
-  displayName: Agent job - Main
+  displayName: Agent job - Main $(imageName)
   strategy:
     maxParallel: 99
     matrix:
@@ -29,11 +29,15 @@ jobs:
       versionSpec: '3.x'
       addToPath: true
       architecture: 'x64'
+    
   - bash: |
       if [ -f .pre-commit-config.yaml ]; then
         echo "##vso[task.setVariable variable=FILEEXISTS_PRECOMMIT]true"
       fi
     displayName: Check if .pre-commit-config.yaml exist
+  - script: |
+      az bicep install
+    condition: eq(variables.imageName, 'macOS-latest')
   - script: |
       pip install pre-commit
       pre-commit --version
