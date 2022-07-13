@@ -10,7 +10,7 @@ trigger:
 
 jobs:
 - job: AgentJobMain
-  displayName: Agent job - Main $(imageName)
+  displayName: Agent job - Main
   strategy:
     maxParallel: 99
     matrix:
