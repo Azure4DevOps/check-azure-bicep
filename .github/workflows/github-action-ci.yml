@@ -16,6 +16,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  GitVersion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitTools  
+        uses: GitTools/actions@v0.9.13
+
   build:
     runs-on: ${{ matrix.os }}
     # The type of runner that the job will run on
