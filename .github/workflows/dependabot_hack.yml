@@ -11,5 +11,5 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       # Dockerfile:
-      - uses: azure/bicep@v0.8.9
+      - uses: azure/bicep@v0.8.4
       - uses: azure/azure-cli@azure-cli-2.37.0
