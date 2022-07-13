@@ -29,7 +29,7 @@ jobs:
       versionSpec: '3.x'
       addToPath: true
       architecture: 'x64'
-    
+
   - bash: |
       if [ -f .pre-commit-config.yaml ]; then
         echo "##vso[task.setVariable variable=FILEEXISTS_PRECOMMIT]true"
@@ -38,6 +38,7 @@ jobs:
   - script: |
       az bicep install
     condition: eq(variables.imageName, 'macOS-latest')
+    displayName: Run az bicep install on macOS-latest on ADO
   - script: |
       pip install pre-commit
       pre-commit --version
