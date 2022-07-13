@@ -56,20 +56,19 @@ repos:
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.8.12
     hooks:
-      - id:
-          gitleaks
+      - id: gitleaks
 
-          # - repo: https://github.com/JanuszNowak/check-azure-bicep
-          #   rev: "master"
-          #   hooks:
-          #   - id: check-azure-bicep
-
-  - repo: local
+  - repo: https://github.com/Azure4DevOps/check-azure-bicep
+    rev: "master"
     hooks:
       - id: check-azure-bicep
-        name: check-azure-bicep
-        language: system
-        #entry: powershell -File ./src/az_bicep_build.ps1
-        entry: pwsh -File ./src/az_bicep_build.ps1
-        pass_filenames: true
-        files: .*.bicep$
+
+  # - repo: local
+  #   hooks:
+  #     - id: check-azure-bicep
+  #       name: check-azure-bicep
+  #       language: system
+  #       #entry: powershell -File ./src/az_bicep_build.ps1
+  #       entry: pwsh -File ./src/az_bicep_build.ps1
+  #       pass_filenames: true
+  #       files: .*.bicep$
