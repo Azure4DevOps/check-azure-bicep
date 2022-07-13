@@ -39,4 +39,3 @@ jobs:
           pip install pre-commit
           pre-commit --version
           pre-commit run --all-files
-          echo test, and deploy your project.
