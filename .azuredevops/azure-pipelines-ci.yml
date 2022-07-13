@@ -24,6 +24,11 @@ jobs:
     vmImage: $(imageName)
 
   steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
+      addToPath: true
+      architecture: 'x64'
   - bash: |
       if [ -f .pre-commit-config.yaml ]; then
         echo "##vso[task.setVariable variable=FILEEXISTS_PRECOMMIT]true"
