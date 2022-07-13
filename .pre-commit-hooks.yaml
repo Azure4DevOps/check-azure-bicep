@@ -1,5 +1,5 @@
 - id: check-azure-bicep
-  name: azure bicep build
+  name: az bicep build
   language: script
   entry: az_bicep_build.ps1
   pass_filenames: true
