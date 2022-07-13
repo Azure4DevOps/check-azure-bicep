@@ -8,8 +8,11 @@ pre-commit hooks for azure bicep validation,
 with built-in support for GitHub Workflows, Renovate, Azure Pipelines, and more!
 
 ## About
+https://pre-commit.com/
+https://pre-commit.com/logo.svg
+https://github.com/Azure/bicep
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
 
-asd
 This repo provide one hook to use with [pre-commit](https://pre-commit.com/) that validate bicep files: it will call az bicep build.
 
 ⚠️ It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
