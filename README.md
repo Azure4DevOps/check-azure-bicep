@@ -36,7 +36,29 @@ run `pre-commit run --all-files` # scaning all fiels
 
 at result all bicep files will or modyfied will be validated doing `az bicep build`
 
+## Example Azure Pipeliens usage `azure-pipelines-ci.yml`
+```yaml
+pool:
+    vmImage: 'ubuntu-latest'
+steps:
+  - script: |  
+      pip install pre-commit
+      pre-commit --version
+      pre-commit run --all-files
+    displayName: Execute pre-commit
+```
 
+## Example Github Workflow usage `github-action-ci.yml`
+```yaml
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Execute pre-commit
+      run: |
+        pip install pre-commit
+        pre-commit --version
+        pre-commit run --all-files
+```          
 
 
 
