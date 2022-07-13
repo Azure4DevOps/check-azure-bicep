@@ -2,8 +2,9 @@
 [![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
 
 # check-azure-bicep
+
 [Pre-commit](https://pre-commit.com/) hooks for [Azure Bicep](https://github.com/Azure/bicep) validation,
-with built-in support for GitHub Workflows, Azure Pipelines, and more! Enbaling [shift left](https://devopedia.org/shift-left) aproach for [Azure Bicep](https://github.com/Azure/bicep) infrastructure as code. 
+with built-in support for GitHub Workflows, Azure Pipelines, and more! Enabling [shift left](https://devopedia.org/shift-left) approach for [Azure Bicep](https://github.com/Azure/bicep) infrastructure as code.
 
 ## About
 
@@ -12,13 +13,17 @@ This repository provide one hook to use with [pre-commit](https://pre-commit.com
 It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
 
 ### Azure Bicep Install
+
 To install `az bicep` use [install](https://docs.microsoft.com/pl-pl/azure/azure-resource-manager/bicep/install) or [install](https://github.com/Azure/bicep) or `az bicep install` for Azure cli.
 
 ### Pre-commit Install
+
 Before you can run hooks, you need to have the pre-commit package manager installed. Using pip:
-```
+
+```pip
 pip install pre-commit
 ```
+
 ## Example usage
 
 Add a snippet to your `.pre-commit-config.yaml` file in root of repository.
@@ -29,19 +34,22 @@ Add a snippet to your `.pre-commit-config.yaml` file in root of repository.
   hooks:
     - id: check-azure-bicep
 ```
-## 
+
+## Example local run
+
 run `pre-commit install` to set up the git hook scripts in your git repository # scan all modyfied miles before making commint (git hooks)
 or
-run `pre-commit run --all-files` # scaning all fiels
+run `pre-commit run --all-files` # scanning all files
 
-at result all bicep files will or modyfied will be validated doing `az bicep build`
+at result all bicep files will or modified will be validated doing `az bicep build`
 
-## Example Azure Pipeliens usage `azure-pipelines-ci.yml`
+## Example Azure Pipelines usage `azure-pipelines-ci.yml`
+
 ```yaml
 pool:
-    vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 steps:
-  - script: |  
+  - script: |
       pip install pre-commit
       pre-commit --version
       pre-commit run --all-files
@@ -49,6 +57,7 @@ steps:
 ```
 
 ## Example Github Workflow usage `github-action-ci.yml`
+
 ```yaml
 build:
   runs-on: ubuntu-latest
@@ -58,7 +67,4 @@ build:
         pip install pre-commit
         pre-commit --version
         pre-commit run --all-files
-```          
-
-
-
+```

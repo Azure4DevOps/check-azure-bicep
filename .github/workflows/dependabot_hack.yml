@@ -1,14 +1,14 @@
 ---
 # See ../DEPENDENCIES.md#workaround-for-other-dependencies
 name: Dependabot hack
-on:  # yamllint disable-line rule:truthy
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - never-trigger-this-dependabot-hack-workflow
 jobs:
   dependabot_hack:
     name: Ensure dependabot version checks
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
       # Dockerfile:
       - uses: azure/bicep@v0.8.4
