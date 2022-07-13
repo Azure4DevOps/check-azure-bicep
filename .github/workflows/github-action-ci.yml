@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       max-parallel: 99
-      matrix:      
+      matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
