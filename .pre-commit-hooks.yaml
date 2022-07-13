@@ -1,6 +1,6 @@
 - id: check-azure-bicep
   name: check-azure-bicep
-  language: script
-  entry: pwsh bin/az_bicep_build.ps1
+  language: system
+  entry: pwsh -File bin/az_bicep_build.ps1
   pass_filenames: true
   files: .*.bicep$
