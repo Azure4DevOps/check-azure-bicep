@@ -8,21 +8,21 @@ trigger:
 - feature/*
 - hotfix/*
 
-strategy:
-  matrix:
-    linux:
-      imageName: 'ubuntu-latest'
-    mac:
-      imageName: 'macOS-latest'
-    windows:
-      imageName: 'windows-latest'
-
-pool:
-  vmImage: $(imageName)
-
 jobs:
 - job: AgentJobMain
   displayName: Agent job - Main
+  strategy:
+    maxParallel: 99
+    matrix:
+      linux:
+        imageName: 'ubuntu-latest'
+      mac:
+        imageName: 'macOS-latest'
+      windows:
+        imageName: 'windows-latest'
+  pool:
+    vmImage: $(imageName)
+
   steps:
   - bash: |
       if [ -f .pre-commit-config.yaml ]; then
