@@ -30,7 +30,7 @@ Add a snippet to your `.pre-commit-config.yaml` file in root of repository.
 
 ```yaml
 - repo: https://github.com/Azure4DevOps/check-azure-bicep
-  rev: 0.2.0 # ${LATEST_SHA_OR_VERSION}
+  rev: v0.2.0 # ${LATEST_SHA_OR_VERSION}
   hooks:
     - id: check-azure-bicep
 ```
