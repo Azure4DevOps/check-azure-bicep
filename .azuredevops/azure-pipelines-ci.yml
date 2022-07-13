@@ -38,6 +38,7 @@ jobs:
   - script: |
       az bicep install
     condition: eq(variables.imageName, 'macOS-latest')
+    retryCountOnTaskFailure: 5
     displayName: Run az bicep install on macOS-latest on ADO
   - script: |
       pip install pre-commit
