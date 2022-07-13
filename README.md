@@ -1,10 +1,11 @@
 # check-azure-bicep
+[![Build Status](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_apis/build/status/Azure4DevOps.check-azure-bicep-ci?branchName=master)](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_build/latest?definitionId=2&branchName=master)
 
 pre-commit hooks for azure bicep validation,
 with built-in support for GitHub Workflows, Renovate, Azure Pipelines, and more!
 
 ## About
-
+asd
 This repo provide one hook to use with [pre-commit](https://pre-commit.com/) that validate bicep files: it will call az bicep build.
 
 ⚠️ It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
