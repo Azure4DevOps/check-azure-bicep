@@ -1,6 +1,8 @@
 # check-azure-bicep
 [![Build Status](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_apis/build/status/Azure4DevOps.check-azure-bicep-ci?branchName=master)](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_build/latest?definitionId=2&branchName=master)
 
+[![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
+
 pre-commit hooks for azure bicep validation,
 with built-in support for GitHub Workflows, Renovate, Azure Pipelines, and more!
 
