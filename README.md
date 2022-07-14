@@ -1,6 +1,7 @@
 [![Build Status](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_apis/build/status/Azure4DevOps.check-azure-bicep-ci?branchName=master)](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_build/latest?definitionId=2&branchName=master)
 [![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
-
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep?include_prereleases)
 # check-azure-bicep
 
 [Pre-commit](https://pre-commit.com/) hooks for [Azure Bicep](https://github.com/Azure/bicep) validation,
