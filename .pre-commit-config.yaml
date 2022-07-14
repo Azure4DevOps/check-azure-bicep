@@ -59,7 +59,7 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/Azure4DevOps/check-azure-bicep
-    rev: v0.1.4
+    rev: v0.2.1
     hooks:
       - id: check-azure-bicep
 
