@@ -2,6 +2,7 @@
 [![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep?include_prereleases)
+
 # check-azure-bicep
 
 [Pre-commit](https://pre-commit.com/) hooks for [Azure Bicep](https://github.com/Azure/bicep) validation,
@@ -14,6 +15,7 @@ This repository provide one hook to use with [pre-commit](https://pre-commit.com
 It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
 
 ## Demo
+
 Example usage of `pre-commit run --all-files` and
 `git commit` after hook innstall in git repository `pre-commit install`
 
