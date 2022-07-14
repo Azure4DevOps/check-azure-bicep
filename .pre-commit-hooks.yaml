@@ -4,10 +4,3 @@
   entry: az_bicep_build.ps1
   pass_filenames: true
   files: .*.bicep$
-
-- id: check-azure-bicep_sh
-  name: az bicep build sh
-  language: script
-  entry: src/az_bicep_build.sh
-  pass_filenames: true
-  files: .*.bicep$
