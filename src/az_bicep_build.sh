@@ -1,4 +1,4 @@
-#!/usr/bin/env pwsh
+#!/usr/bin/env bash
 #$in = Get-ChildItem -Recurse -Filter "*.bicep"
 $in = $args
 
