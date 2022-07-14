@@ -1,5 +1,7 @@
 [![Build Status](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_apis/build/status/Azure4DevOps.check-azure-bicep-ci?branchName=master)](https://dev.azure.com/Azure4DevOps/Azure4DevOps/_build/latest?definitionId=2&branchName=master)
 [![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep?include_prereleases)
 
 # check-azure-bicep
 
@@ -11,6 +13,13 @@ with built-in support for GitHub Workflows, Azure Pipelines, and more! Enabling 
 This repository provide one hook to use with [pre-commit](https://pre-commit.com/) that validate bicep files: it will call `az bicep build`.
 
 It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
+
+## Demo
+
+Example usage of `pre-commit run --all-files` and
+`git commit` after hook innstall in git repository `pre-commit install`
+
+![alt text](https://raw.githubusercontent.com/Azure4DevOps/check-azure-bicep.example/master/example.gif)
 
 ### Azure Bicep Install
 
@@ -30,7 +39,7 @@ Add a snippet to your `.pre-commit-config.yaml` file in root of repository.
 
 ```yaml
 - repo: https://github.com/Azure4DevOps/check-azure-bicep
-  rev: v0.2.0 # ${LATEST_SHA_OR_VERSION}
+  rev: v0.1.4 # ${LATEST_SHA_OR_VERSION}
   hooks:
     - id: check-azure-bicep
 ```
