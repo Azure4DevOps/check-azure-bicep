@@ -13,6 +13,12 @@ This repository provide one hook to use with [pre-commit](https://pre-commit.com
 
 It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://github.com/Azure/bicep) under the hood.
 
+## Demo
+Example usage of `pre-commit run --all-files` and
+`git commit` after hook innstall in git repository `pre-commit install`
+
+![alt text](https://raw.githubusercontent.com/Azure4DevOps/check-azure-bicep.example/master/example.gif)
+
 ### Azure Bicep Install
 
 To install `az bicep` use [install](https://docs.microsoft.com/pl-pl/azure/azure-resource-manager/bicep/install) or [install](https://github.com/Azure/bicep) or `az bicep install` for Azure cli.
@@ -31,7 +37,7 @@ Add a snippet to your `.pre-commit-config.yaml` file in root of repository.
 
 ```yaml
 - repo: https://github.com/Azure4DevOps/check-azure-bicep
-  rev: v0.2.0 # ${LATEST_SHA_OR_VERSION}
+  rev: v0.1.4 # ${LATEST_SHA_OR_VERSION}
   hooks:
     - id: check-azure-bicep
 ```
