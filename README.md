@@ -5,7 +5,7 @@
 
 # check-azure-bicep
 
-[Pre-commit](https://pre-commit.com/) hooks for [Azure Bicep](https://github.com/Azure/bicep) validation,
+[pre-commit](https://pre-commit.com/) hooks for [Azure Bicep](https://github.com/Azure/bicep) validation,
 with built-in support for GitHub Workflows, Azure Pipelines, and more! Enabling [shift left](https://devopedia.org/shift-left) approach for [Azure Bicep](https://github.com/Azure/bicep) infrastructure as code.
 
 ## About
@@ -25,7 +25,7 @@ Example usage of `pre-commit run --all-files` and
 
 To install `az bicep` use [install](https://docs.microsoft.com/pl-pl/azure/azure-resource-manager/bicep/install) or [install](https://github.com/Azure/bicep) or `az bicep install` for Azure cli.
 
-### Pre-commit Install
+### pre-commit Install
 
 Before you can run hooks, you need to have the pre-commit package manager installed. Using pip:
 
