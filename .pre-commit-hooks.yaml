@@ -9,4 +9,4 @@
   language: python
   entry: az_bicep_build_python.py
   files: .*.bicep$
-  additional_dependencies: [azure-cli, subprocess.run]
+  additional_dependencies: [azure-cli, subprocess]
