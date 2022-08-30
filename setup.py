@@ -15,4 +15,9 @@ setuptools.setup(
         include=["*"],
     ),
     install_requires=get_project_requirements(),
+    entry_points={
+      "console_scripts": [
+          "entry_function()=my_function",
+      ]
+  },
 )
