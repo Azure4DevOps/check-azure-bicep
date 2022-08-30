@@ -9,12 +9,4 @@
   language: python
   entry: my_function
   files: .*.bicep$
-  #additional_dependencies: ['azure-cli']
-
-- id: check-azure-bicep-python2
-  name: az bicep build (python)2
-  language: python
-  entry: entry_function
-  files: .*.bicep$
-  #additional_dependencies: ['azure-cli']
-
+  additional_dependencies: ['azure-cli']
