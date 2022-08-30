@@ -7,6 +7,6 @@
 - id: check-azure-bicep-python
   name: az bicep build (python)
   language: python
-  entry: az_bicep_build_python.py
+  entry: python az_bicep_build_python.py
   files: .*.bicep$
   #additional_dependencies: ['azure-cli']
