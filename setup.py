@@ -38,7 +38,7 @@ setuptools.setup(
     install_requires=get_project_requirements(),
     entry_points={
         "console_scripts": [
-        "my_function=my_function2",
+        "my_function=checkazurebiceppython:my_function2",
         ]
     },
 )
