@@ -35,10 +35,5 @@ setuptools.setup(
     packages=setuptools.find_packages(
         include=["*"],
     ),
-    install_requires=get_project_requirements(),
-    entry_points={
-      "console_scripts": [
-          "entry_function()=my_function",
-      ]
-  },
+    install_requires=get_project_requirements(),    
 )
