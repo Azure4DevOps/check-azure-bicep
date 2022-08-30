@@ -7,7 +7,7 @@ def get_project_requirements() -> str:
     with open(f"requirements.txt", "r") as f:
         return f.read()
     
-def my_function():
+def my_function2():
 
   biceps_version = subprocess.run(["az", "bicep", "version"], stdout=subprocess.PIPE, text=True, shell=True)
   biceps_version = subprocess.run(["az", "bicep", "upgrade"], stdout=subprocess.PIPE, text=True, shell=True)
@@ -35,5 +35,10 @@ setuptools.setup(
     packages=setuptools.find_packages(
         include=["*"],
     ),
-    install_requires=get_project_requirements(),    
+    install_requires=get_project_requirements(),
+    entry_points={
+        "console_scripts": [
+        "my_function=my_function2",
+        ]
+    },
 )
