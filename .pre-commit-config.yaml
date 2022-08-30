@@ -59,7 +59,7 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/Azure4DevOps/check-azure-bicep
-    rev: v0.3.1
+    rev: master
     hooks:
       - id: check-azure-bicep
       - id: check-azure-bicep-python
