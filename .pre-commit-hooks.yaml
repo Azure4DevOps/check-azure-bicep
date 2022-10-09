@@ -20,6 +20,6 @@
 - id: check-azure-bicep-python
   name: az bicep format (python)
   language: python
-  entry: my_function
+  entry: entry_az_bicep_format
   files: .*.bicep$
   additional_dependencies: ['azure-cli']
