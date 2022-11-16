@@ -30,7 +30,7 @@ setuptools.setup(
     description="check-azure-bicep-python",
     long_description_content_type="text/markdown",
     url="https://github.com/Azure4DevOps/check-azure-bicep",
-    python_requires="==3.11.*",
+    python_requires="==3.10.*",
     license="MIT",
     packages=setuptools.find_packages(
         include=["*"],
