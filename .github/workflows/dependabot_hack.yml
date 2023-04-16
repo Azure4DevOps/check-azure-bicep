@@ -5,6 +5,8 @@ on: # yamllint disable-line rule:truthy
   push:
     branches:
       - never-trigger-this-dependabot-hack-workflow
+  workflow_dispatch:
+
 jobs:
   dependabot_hack:
     name: Ensure dependabot version checks
