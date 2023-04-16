@@ -10,3 +10,16 @@
   entry: my_function
   files: .*.bicep$
   additional_dependencies: ['azure-cli']
+
+- id: check-azure-bicep-format
+  name: az bicep format
+  language: script
+  entry: az_bicep_format.ps1
+  files: .*.bicep$
+
+- id: check-azure-bicep-format-python
+  name: az bicep format (python)
+  language: python
+  entry: entry_az_bicep_format
+  files: .*.bicep$
+  additional_dependencies: ['azure-cli']
