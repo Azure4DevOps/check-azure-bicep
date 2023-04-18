@@ -7,7 +7,7 @@ def get_project_requirements() -> str:
     with open(f"requirements.txt", "r") as f:
         return f.read()
     
-def my_function2():
+def az_bicep_build():
 
   biceps_version = subprocess.run(["az", "bicep", "version"], stdout=subprocess.PIPE, text=True, shell=True)
   biceps_version = subprocess.run(["az", "bicep", "upgrade"], stdout=subprocess.PIPE, text=True, shell=True)
@@ -56,7 +56,7 @@ setuptools.setup(
     install_requires=get_project_requirements(),
     entry_points={
         "console_scripts": [
-        "my_function=checkazurebiceppython:my_function2",
+        "my_function=checkazurebiceppython:az_bicep_build",
         "entry_az_bicep_format=checkazurebiceppython:az_bicep_format",
         ]
     },
