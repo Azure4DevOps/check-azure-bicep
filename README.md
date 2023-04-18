@@ -34,7 +34,17 @@ To install `az bicep` use [install](https://docs.microsoft.com/pl-pl/azure/azure
 Before you can run hooks, you need to have the pre-commit package manager installed. Using pip:
 
 ```pip
+# install using pip
 pip install pre-commit
+
+# check if working - expected print with version like `pre-commit 3.2.2`
+pre-commit --version
+
+# setup the git repo for hooks
+pre-commit install
+
+# periodically run updates to your pre-commit config to make sure you always have the latest version of the hooks
+pre-commit autoupdate
 ```
 
 ## Example usage
@@ -81,3 +91,7 @@ build:
         pre-commit --version
         pre-commit run --all-files
 ```
+
+## 📄 License
+
+This project is distributed under the terms of the [MIT](https://opensource.org/licenses/MIT) license.
