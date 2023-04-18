@@ -2,6 +2,10 @@
 [![CI](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml/badge.svg)](https://github.com/Azure4DevOps/check-azure-bicep/actions/workflows/github-action-ci.yml)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Azure4DevOps/check-azure-bicep?include_prereleases)
+[![pre-commit][pre-commit-image]][pre-commit-link]
+
+[pre-commit-image]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=flat-square
+[pre-commit-link]: https://github.com/pre-commit/pre-commit
 
 # check-azure-bicep
 
