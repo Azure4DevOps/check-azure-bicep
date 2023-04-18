@@ -56,7 +56,7 @@ setuptools.setup(
     install_requires=get_project_requirements(),
     entry_points={
         "console_scripts": [
-        "my_function=checkazurebiceppython:az_bicep_build",
+        "entry_az_bicep_build=checkazurebiceppython:az_bicep_build",
         "entry_az_bicep_format=checkazurebiceppython:az_bicep_format",
         ]
     },
