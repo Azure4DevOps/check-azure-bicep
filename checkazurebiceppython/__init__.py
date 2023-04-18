@@ -3,7 +3,7 @@ import glob
 import subprocess
 import sys
 
-def my_function2():
+def az_bicep_build():
 
   biceps_version = subprocess.run(["az", "bicep", "version"], stdout=subprocess.PIPE, text=True, shell=True)
   biceps_version = subprocess.run(["az", "bicep", "upgrade"], stdout=subprocess.PIPE, text=True, shell=True)
