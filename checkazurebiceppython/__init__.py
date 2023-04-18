@@ -30,7 +30,7 @@ def az_bicep_format():
   #print(glob.glob("./**/*.bicep", recursive=True))
   any_error = None
   for bicep_file in glob.glob("./**/*.bicep", recursive=True):
-      result = subprocess.run(["az", "bicep", "format", "--stdout", "--file", bicep_file], shell=True, capture_output=True)
+      result = subprocess.run(["az", "bicep", "format", "--file", bicep_file], shell=True, capture_output=True)
 
       if result.stderr:
           print(result.stderr)
