@@ -4,6 +4,7 @@ $in = $args
 
 $error_azbuild = $false;
 az bicep version
+az bicep upgrade
 foreach ($b in $in) {
     $a = az bicep build --stdout --file $b
     if ( $LASTEXITCODE -eq 0 ) {
