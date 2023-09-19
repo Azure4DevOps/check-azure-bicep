@@ -9,7 +9,7 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
-      - uses: renovatebot/renovate@36.49.0
+      - uses: renovatebot/renovate@36.97.2
         with:
           # Set the GitHub token for authentication
           token: ${{ secrets.GITHUB_TOKEN }}
