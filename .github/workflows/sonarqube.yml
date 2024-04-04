@@ -45,7 +45,7 @@ jobs:
 
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarqube-scan-action@v1.1.0
-        uses: SonarSource/sonarqube-scan-action@69c1a75940dec6249b86dace6b630d3a2ae9d2a7
+        uses: SonarSource/sonarqube-scan-action@53c3e3207fe4b8d52e2f1ac9d6eb1d2506f626c0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
