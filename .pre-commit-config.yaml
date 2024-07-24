@@ -32,10 +32,10 @@ repos:
         language: system
         entry: pwsh -File ./az_bicep_build.ps1
         pass_filenames: true
-        files: .*.bicep$
+        files: .*\.bicep$
       - id: check-azure-bicep-format
         name: check-azure-bicep-format
         language: system
         entry: pwsh -File ./az_bicep_format.ps1
         pass_filenames: true
-        files: .*.bicep$
+        files: .*\.bicep$

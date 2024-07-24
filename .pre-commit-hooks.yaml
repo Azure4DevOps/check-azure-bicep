@@ -1,25 +1,31 @@
 - id: check-azure-bicep
   name: az bicep build
   language: script
+  require_serial: true
   entry: az_bicep_build.ps1
-  files: .*.bicep$
+  files: .*\.bicep$
 
 - id: check-azure-bicep-python
   name: az bicep build (python)
   language: python
+  pass_filenames: false
+  require_serial: true
   entry: entry_az_bicep_build
-  files: .*.bicep$
+  files: .*\.bicep$
   additional_dependencies: ['azure-cli']
 
 - id: check-azure-bicep-format
   name: az bicep format
   language: script
+  require_serial: true
   entry: az_bicep_format.ps1
-  files: .*.bicep$
+  files: .*\.bicep$
 
 - id: check-azure-bicep-format-python
   name: az bicep format (python)
   language: python
+  pass_filenames: false
+  require_serial: true
   entry: entry_az_bicep_format
-  files: .*.bicep$
+  files: .*\.bicep$
   additional_dependencies: ['azure-cli']
