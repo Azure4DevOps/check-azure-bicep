@@ -7,12 +7,12 @@ import sys
 
 def az_bicep_build():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--no-upgrade', action='store_true')
-    args = parser.parse_args(['--no-upgrade'])
+    parser.add_argument('-noupgrade', action='store_true')
+    args = parser.parse_args(['-noupgrade'])
 
     biceps_version = subprocess.run(
         ["az", "bicep", "version"], stdout=subprocess.PIPE, text=True, shell=True)
-    if not args.no_upgrade:
+    if not args.noupgrade:
         biceps_version = subprocess.run(
             ["az", "bicep", "upgrade"], stdout=subprocess.PIPE, text=True, shell=True)
     # print(biceps_version.stdout)
@@ -33,12 +33,12 @@ def az_bicep_build():
 
 def az_bicep_format():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--no-upgrade', action='store_true')
-    args = parser.parse_args(['--no-upgrade'])
+    parser.add_argument('--noupgrade', action='store_true')
+    args = parser.parse_args(['--noupgrade'])
 
     biceps_version = subprocess.run(
         ["az", "bicep", "version"], stdout=subprocess.PIPE, text=True, shell=True)
-    if not args.no_upgrade:
+    if not args.noupgrade:
         biceps_version = subprocess.run(
             ["az", "bicep", "upgrade"], stdout=subprocess.PIPE, text=True, shell=True)
     # print(biceps_version.stdout)
