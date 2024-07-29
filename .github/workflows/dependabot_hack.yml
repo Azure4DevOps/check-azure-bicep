@@ -15,5 +15,5 @@ jobs:
       # Dockerfile:
       - uses: azure/azure-cli@azure-cli-2.62.0
       - uses: azure/bicep@v0.28.1
-      - uses: pre-commit/pre-commit@v3.7.1
+      - uses: pre-commit/pre-commit@v3.8.0
       
