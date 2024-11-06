@@ -1,11 +1,14 @@
 #!/usr/bin/env pwsh
 #$in = Get-ChildItem -Recurse -Filter "*.bicep"
+param([switch] $noupgrade )
 $in = $args
 
 $error_azbuild = $false;
 az bicep version
 
-az bicep upgrade
+if (! $noupgrade) {
+    az bicep upgrade
+}
 foreach ($b in $in) {
     $a = az bicep format --stdout --file $b
     if ( $LASTEXITCODE -eq 0 ) {
