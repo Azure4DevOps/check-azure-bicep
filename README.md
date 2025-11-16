@@ -21,7 +21,7 @@ It requires the `az bicep` toolchain installed, and uses [`az bicep`](https://gi
 ## Demo
 
 Example usage of `pre-commit run --all-files` and
-`git commit` after hook innstall in git repository `pre-commit install`
+`git commit` after hook install in git repository `pre-commit install`
 
 ![alt text](https://raw.githubusercontent.com/Azure4DevOps/check-azure-bicep.example/master/example.gif)
 
