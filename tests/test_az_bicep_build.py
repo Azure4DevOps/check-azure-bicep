@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """Unit tests for az_bicep_build function."""
 import unittest
-import sys
 from unittest.mock import patch, MagicMock
 from checkazurebiceppython import az_bicep_build
 
