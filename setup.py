@@ -4,7 +4,11 @@ import subprocess
 import sys
 
 def get_project_requirements() -> str:
-    with open(f"requirements.txt", "r") as f:
+    with open("requirements.txt", "r") as f:
+        return f.read()
+
+def get_long_description() -> str:
+    with open("README.md", "r", encoding="utf-8") as f:
         return f.read()
 
 def az_bicep_build():
@@ -45,7 +49,8 @@ def az_bicep_format():
 
 setuptools.setup(
     name="check-azure-bicep-python",
-    description="check-azure-bicep-python",
+    description="Pre-commit hooks for Azure Bicep validation with built-in support for GitHub Workflows and Azure Pipelines",
+    long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/Azure4DevOps/check-azure-bicep",
     python_requires=">=3.10",
