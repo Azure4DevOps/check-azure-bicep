@@ -22,7 +22,10 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[docs] "
     draft: true
-    protected-files: allowed
+    protected-files:
+      policy: allowed
+      exclude:
+        - README.md
     allowed-files:
       - "*.md"
       - "**/*.md"
