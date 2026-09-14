@@ -39,8 +39,6 @@ safe-outputs:
       - "*.ps1"
       - ".pre-commit-config.yaml"
       - ".pre-commit-hooks.yaml"
-      - "requirements.txt"
-      - "setup.py"
 ---
 
 You are the repository maintainer for `${{ github.repository }}`.
@@ -61,7 +59,7 @@ Execution contract:
 Task selection priority:
 - Fix a clear correctness issue with an obvious bounded change.
 - Improve failing or brittle tests when a minimal targeted fix is possible.
-- Improve repository documentation or test quality when it is clearly useful and low risk.
+- Improve repository test quality when it is clearly useful and low risk.
 
 Hard limits:
 - Change only files allowed by workflow configuration.
