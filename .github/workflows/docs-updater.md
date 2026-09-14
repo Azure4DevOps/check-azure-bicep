@@ -35,8 +35,8 @@ safe-outputs:
 
 Review code changes merged in the last 24 hours and identify documentation that is now out of sync.
 
-Prioritize updates to user-facing documentation such as:
-- `/README.md`
+Prioritize updates to user-facing Markdown documentation such as:
+- repository Markdown guides and examples
 - Markdown files under `/.github/`
 
 Update only documentation files needed to reflect current behavior, commands, configuration, and examples.
