@@ -3,7 +3,8 @@ name: Weekly AGENTS.md Maintenance
 description: Weekly maintenance of AGENTS.md from merged pull requests and source updates.
 intent: Keep AGENTS.md accurate by reviewing merged pull requests and source file updates since the previous successful run, then propose only necessary AGENTS.md updates.
 on:
-  schedule: weekly
+  schedule:
+    - cron: "0 9 * * 1"
   workflow_dispatch:
 permissions:
   contents: read
