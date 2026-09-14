@@ -2,7 +2,8 @@
 name: Documentation Drift Updater
 description: Detect outdated documentation after recent code changes and open a draft PR with updates.
 on:
-  schedule: daily
+  schedule:
+    - cron: "17 3 * * *"
   workflow_dispatch:
   skip-if-match: 'is:pr is:open in:title "[docs] Documentation drift update"'
 permissions:
