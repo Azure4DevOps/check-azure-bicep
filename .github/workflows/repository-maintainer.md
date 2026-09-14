@@ -61,10 +61,11 @@ Execution contract:
 Task selection priority:
 - Fix a clear correctness issue with an obvious bounded change.
 - Improve failing or brittle tests when a minimal targeted fix is possible.
-- Improve repository maintenance quality (docs/config/tests) when it is clearly useful and low risk.
+- Improve repository documentation or test quality when it is clearly useful and low risk.
 
 Hard limits:
 - Change only files allowed by workflow configuration.
+- Do not modify files under `.github/workflows/`.
 - At most one pull request and one maintenance concern per run.
 - If no safe, valuable, bounded task is found, call `noop` with a short reason.
 
