@@ -12,19 +12,10 @@ permissions:
   copilot-requests: write
 strict: true
 tools:
-  bash: [cat, jq, grep, head, sed, wc]
-steps:
-  - name: Prefetch triage context
-    run: |
-      mkdir -p /tmp/gh-aw/data
-      ISSUE_NUMBER="${{ github.event.issue.number }}"
-      REPO="${{ github.repository }}"
-      gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,title,body,author,labels,assignees,url,createdAt,updatedAt > /tmp/gh-aw/data/trigger-issue.json
-      gh issue list --repo "$REPO" --state open --limit 50 --json number,title,body,author,labels,assignees,url,createdAt,updatedAt \
-        | jq --argjson issue_number "$ISSUE_NUMBER" '[.[] | select(.number != $issue_number) | {number,title,body,author:(.author.login // .author.name // ""),labels:[.labels[].name],assignees:[.assignees[].login],url,createdAt,updatedAt}]' \
-        > /tmp/gh-aw/data/open-issues.json
-      gh label list --repo "$REPO" --json name,description > /tmp/gh-aw/data/labels.json
-      gh api "repos/$REPO/collaborators?per_page=100" | jq '[.[] | {login, permissions}]' > /tmp/gh-aw/data/collaborators.json
+  bash: [gh, jq, cat, grep, head, sed, wc]
+  github:
+    mode: gh-proxy
+    toolsets: [context, issues, labels]
 safe-outputs:
   allowed-github-references: [repo]
   noop:
@@ -57,14 +48,14 @@ safe-outputs:
 
 Objective: triage each newly opened issue in `${{ github.repository }}`.
 
-Read these pre-fetched files before taking any action:
+Use `gh` read commands only to gather context for the triggering issue `${{ github.event.issue.number }}`:
 
-- `/tmp/gh-aw/data/trigger-issue.json`
-- `/tmp/gh-aw/data/open-issues.json`
-- `/tmp/gh-aw/data/labels.json`
-- `/tmp/gh-aw/data/collaborators.json`
+- `gh issue view` for the triggering issue
+- `gh issue list` for open issues that may be duplicates
+- `gh label list` for available labels
+- `gh api repos/${{ github.repository }}/collaborators?per_page=100` for assignable collaborators
 
-Use the safe outputs only. Do not use direct GitHub write permissions or shell commands to mutate GitHub state.
+Use the safe outputs only for GitHub writes. Do not mutate GitHub state from shell commands.
 
 ## Triage policy
 
@@ -84,7 +75,7 @@ For the triggering issue:
    - `High`: clear bug or high-value request with immediate user impact
    - `Medium`: actionable but not blocking
    - `Low`: minor improvement, polish, or low-confidence request
-4. Detect duplicates by comparing the triggering issue with `/tmp/gh-aw/data/open-issues.json`. Only treat an issue as a duplicate when the underlying problem or requested outcome materially overlaps and another open issue is the better canonical tracker.
+4. Detect duplicates by comparing the triggering issue with other open issues in `${{ github.repository }}`. Only treat an issue as a duplicate when the underlying problem or requested outcome materially overlaps and another open issue is the better canonical tracker.
 
 ## Required actions
 
@@ -105,6 +96,7 @@ For the triggering issue:
 
 - Keep comments concise, specific, and actionable.
 - Prefer the existing issue templates: missing reproduction details strongly suggests a clarifying question for likely bugs; missing desired outcome strongly suggests a clarifying question for likely features.
+- Never interpolate issue body text, titles, or comment text into shell commands; read them from structured `gh ... --json` output instead.
 - Do not call something a duplicate based on one shared keyword alone.
 - Do not add more than one type label unless `duplicate` is also required.
 - If the issue is already clearly triaged or there is not enough evidence to act safely, call `noop` with a short reason.
