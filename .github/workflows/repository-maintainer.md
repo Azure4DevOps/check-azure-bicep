@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: "23 6 * * 1-5"
   workflow_dispatch:
-  skip-if-match: 'is:pr is:open draft:true label:agentic-maintenance'
 permissions:
   contents: read
   issues: read
@@ -32,6 +31,7 @@ safe-outputs:
     draft: true
     max: 1
     if-no-changes: ignore
+    close-older-pull-requests: true
     allowed-files:
       - "checkazurebiceppython/**"
       - "tests/**"
@@ -49,7 +49,7 @@ safe-outputs:
       - "poetry.lock"
     protected-files:
       policy: fallback-to-issue
-      exclude: [README.md, requirements.txt, setup.py]
+      exclude: [README.md, requirements*.txt, setup.py]
 ---
 
 You are the repository maintainer for `${{ github.repository }}`.
