@@ -63,7 +63,10 @@ on:
         required: false
         type: string
 
-permissions: {}
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
 
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
@@ -1116,6 +1119,7 @@ jobs:
     runs-on: ubuntu-slim
     permissions:
       actions: read
+      contents: read
       issues: write
     concurrency:
       group: "gh-aw-conclusion-daily-repository-activity-report"
