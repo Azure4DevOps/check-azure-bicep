@@ -8,6 +8,10 @@ on:
     - cron: '0 2 * * *'
   workflow_dispatch:
   skip-if-match: 'is:pr is:open in:title "[safe-dep-update] "'
+  roles: all
+
+env:
+  DEFAULT_BRANCH: master
 
 permissions:
   contents: read
@@ -34,7 +38,7 @@ network:
 safe-outputs:
   threat-detection: false
   create-pull-request:
-    base-branch: master
+    base-branch: ${{ env.DEFAULT_BRANCH }}
     title-prefix: "[safe-dep-update] "
     branch-prefix: "aw/daily-dep-update-"
     close-older-pull-requests: true
