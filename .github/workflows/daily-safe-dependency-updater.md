@@ -15,13 +15,14 @@ permissions:
   issues: read
   actions: read
   security-events: read
+  vulnerability-alerts: read
   copilot-requests: write
 
 tools:
   github:
     mode: gh-proxy
     toolsets: [default, actions, dependabot]
-  web-fetch: true
+  web-fetch: {}
   bash: ["*"]
 
 network:
