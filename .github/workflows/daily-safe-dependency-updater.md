@@ -43,6 +43,7 @@ safe-outputs:
       - setup.py
       - .pre-commit-config.yaml
       - .pre-commit-hooks.yaml
+      - .github/workflows/*.md
       - .github/workflows/*.yml
       - tests/**/*.py
 ---
