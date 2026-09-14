@@ -37,19 +37,10 @@ safe-outputs:
       - "tests/**"
       - "*.bicep"
       - "*.ps1"
-      - "README.md"
       - ".pre-commit-config.yaml"
       - ".pre-commit-hooks.yaml"
       - "requirements.txt"
       - "setup.py"
-      - "pyproject.toml"
-      - "setup.cfg"
-      - "Pipfile"
-      - "uv.lock"
-      - "poetry.lock"
-    protected-files:
-      policy: fallback-to-issue
-      exclude: [README.md, requirements.txt, setup.py, pyproject.toml, setup.cfg, Pipfile, uv.lock, poetry.lock]
 ---
 
 You are the repository maintainer for `${{ github.repository }}`.
