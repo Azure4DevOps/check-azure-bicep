@@ -32,8 +32,9 @@ network:
     - python
 
 safe-outputs:
+  threat-detection: false
   create-pull-request:
-    base-branch: master
+    base-branch: ${{ github.event.repository.default_branch }}
     title-prefix: "[safe-dep-update] "
     branch-prefix: "aw/daily-dep-update-"
     close-older-pull-requests: true
@@ -57,7 +58,7 @@ Goal:
 Repository context:
 - this repository is a Python-based pre-commit hook project
 - dependency sources include `requirements.txt`, `setup.py`, `.pre-commit-config.yaml`, and `.pre-commit-hooks.yaml`
-- the default branch is `master`
+- the workflow should target the repository default branch for pull requests
 - existing CI currently relies on `pip install pre-commit` followed by `pre-commit run --all-files`
 
 Execution requirements:
