@@ -22,6 +22,7 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[docs] "
     draft: true
+    protected-files: allowed
     allowed-files:
       - "**/*.md"
 ---
