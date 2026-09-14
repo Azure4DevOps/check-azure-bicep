@@ -51,7 +51,8 @@ Produce a concise report with these sections:
 
 ### Open blockers
 - Identify open blocker items by searching open issues and open pull requests for blocker indicators.
-- Treat any item as a blocker if it has a label matching one of: `blocker`, `blocked`, `critical`, `sev1`, `priority:high`, or if the title starts with `BLOCKER:`.
+- Normalize label names to lowercase before matching.
+- Treat any item as a blocker if it has a case-insensitive label match for one of: `blocker`, `blocked`, `critical`, `sev1`, `priority:high`, or if the title starts with `BLOCKER:` (case-insensitive).
 - For each blocker, include type (issue or pull request), title, owner/assignee if available, age in days, and URL.
 - If no blockers are found, state that none are currently open.
 
@@ -62,4 +63,4 @@ Produce a concise report with these sections:
 
 - Use only repository data available through GitHub tools.
 - Do not create duplicate daily report issues; rely on the configured `close-older-issues` behavior.
-- If there are no new issues, no merged pull requests, and no open blockers, call `noop` with: `No updates in last 24 full hours (<window_start_utc> to <window_end_utc>)`.
+- Always create the daily report issue, even when all sections are empty, so the previous report issue can be closed.
