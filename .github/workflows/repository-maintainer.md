@@ -35,8 +35,8 @@ safe-outputs:
     allowed-files:
       - "checkazurebiceppython/**"
       - "tests/**"
-      - "*.bicep"
-      - "*.ps1"
+      - "**/*.bicep"
+      - "**/*.ps1"
       - ".pre-commit-config.yaml"
       - ".pre-commit-hooks.yaml"
 ---
