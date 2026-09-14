@@ -78,8 +78,8 @@ Execution requirements:
 7. Add or improve tests only when the dependency-driven code change touches behavior that is currently untested or under-tested and an existing repository test command can verify those tests.
 8. Regenerate or synchronize any dependency metadata only when required by the repository's existing tooling.
 9. Run the repository's existing validation commands after making changes. Re-run them after any fix.
-10. If a safe update would require new tests but the repository has no trustworthy existing test command you can reuse, call `noop` instead of creating an unverified PR.
-11. Use the `create-pull-request` safe output only after all selected updates and tests pass.
+10. If a safe update would benefit from new tests but the repository has no trustworthy existing test command you can reuse, skip test generation, explain that limitation in the PR body, and proceed only when the repository's existing validation commands still pass.
+11. Use the `create-pull-request` safe output only after all selected updates and any tests you were able to verify pass.
 
 Validation requirements:
 - use only validation commands already present in the repository
