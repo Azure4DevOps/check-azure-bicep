@@ -34,7 +34,7 @@ network:
 safe-outputs:
   threat-detection: false
   create-pull-request:
-    base-branch: ${{ github.event.repository.default_branch }}
+    base-branch: ${{ github.event.repository.default_branch || github.ref_name }}
     title-prefix: "[safe-dep-update] "
     branch-prefix: "aw/daily-dep-update-"
     close-older-pull-requests: true
