@@ -35,14 +35,21 @@ safe-outputs:
     allowed-files:
       - "checkazurebiceppython/**"
       - "tests/**"
-      - "*.py"
+      - "*.bicep"
       - "*.ps1"
       - "README.md"
       - ".pre-commit-config.yaml"
       - ".pre-commit-hooks.yaml"
-      - "requirements.txt"
+      - "requirements*.txt"
       - "setup.py"
-    protected-files: fallback-to-issue
+      - "pyproject.toml"
+      - "setup.cfg"
+      - "Pipfile"
+      - "uv.lock"
+      - "poetry.lock"
+    protected-files:
+      policy: fallback-to-issue
+      exclude: [README.md, requirements.txt, setup.py]
 ---
 
 You are the repository maintainer for `${{ github.repository }}`.
@@ -53,7 +60,7 @@ Trigger context:
 
 Execution contract:
 1. Inspect repository health signals first (recent open issues, open pull requests, failed checks, and stale maintenance gaps) using `gh` and local repository files.
-2. Select exactly one small, high-confidence maintenance task that can be completed in a single draft PR.
+2. Select exactly one small, high-confidence maintenance task within the configured allowed file scope.
 3. Keep the change focused: one concern, small patch, and no speculative refactors.
 4. Follow repository instructions and existing patterns. Do not add new dependencies unless strictly required by the selected fix.
 5. Run relevant existing validation for changed areas. Include exact validation commands and pass/fail results in the PR body.
