@@ -1,6 +1,6 @@
 ---
 name: Daily Safe Dependency Updater & Test Generator
-description: Daily audit to safely update Python and GitHub Action dependencies, add missing tests for impacted code, verify validation commands, and open a PR only when the repository is improved.
+description: Daily audit to safely update repository dependency manifests, add missing tests for impacted code, verify validation commands, and open a PR only when the repository is improved.
 engine: copilot
 
 on:
@@ -43,8 +43,6 @@ safe-outputs:
       - setup.py
       - .pre-commit-config.yaml
       - .pre-commit-hooks.yaml
-      - .github/workflows/*.md
-      - .github/workflows/*.yml
       - tests/**/*.py
 ---
 
@@ -58,13 +56,13 @@ Goal:
 
 Repository context:
 - this repository is a Python-based pre-commit hook project
-- dependency sources include `requirements.txt`, `setup.py`, `.pre-commit-config.yaml`, `.pre-commit-hooks.yaml`, and GitHub Actions workflow files under `.github/workflows/*.yml`
+- dependency sources include `requirements.txt`, `setup.py`, `.pre-commit-config.yaml`, and `.pre-commit-hooks.yaml`
 - the default branch is `master`
 - existing CI currently relies on `pip install pre-commit` followed by `pre-commit run --all-files`
 
 Execution requirements:
 1. Start by inspecting the tracked dependency files and any existing open pull requests created by this workflow.
-2. Audit for security advisories, patch releases, and safe minor updates relevant to the repository's Python packages and pinned GitHub Actions.
+2. Audit for security advisories, patch releases, and safe minor updates relevant to the repository's Python and pre-commit dependencies.
 3. Prefer the smallest useful change set for a single run. Do not mix unrelated upgrades just to increase scope.
 4. Review changelogs or release notes for every dependency you plan to update before editing files.
 5. If an update changes public behavior or requires code changes, adapt the repository code minimally and safely.
