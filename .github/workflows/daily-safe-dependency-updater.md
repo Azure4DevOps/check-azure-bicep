@@ -1,6 +1,6 @@
 ---
 name: Daily Safe Dependency Updater & Test Generator
-description: Daily audit to safely update repository dependency manifests, add missing tests for impacted code, verify validation commands, and open a PR only when the repository is improved.
+description: Daily audit to safely update repository dependency manifests, optionally add verifiable tests for impacted code, verify validation commands, and open a PR only when the repository is improved.
 engine: copilot
 
 on:
@@ -40,8 +40,14 @@ safe-outputs:
     close-older-pull-requests: true
     protected-files: allowed
     allowed-files:
-      - requirements.txt
+      - requirements*.txt
       - setup.py
+      - setup.cfg
+      - pyproject.toml
+      - Pipfile
+      - Pipfile.lock
+      - poetry.lock
+      - uv.lock
       - .pre-commit-config.yaml
       - .pre-commit-hooks.yaml
       - tests/**/*.py
@@ -52,7 +58,7 @@ You are an automated software engineer and dependency security auditor for this 
 Goal:
 - keep repository dependencies current with safe patch and minor updates
 - prioritize security fixes and packages with actionable advisories
-- add or improve tests only for repository code paths affected by dependency-related code changes
+- add or improve tests only for repository code paths affected by dependency-related code changes when those tests can be verified with an existing repository test command
 - open exactly one verified pull request when the update is safe, useful, and fully validated
 
 Repository context:
@@ -60,6 +66,7 @@ Repository context:
 - dependency sources include `requirements.txt`, `setup.py`, `.pre-commit-config.yaml`, and `.pre-commit-hooks.yaml`
 - the workflow should target the repository default branch for pull requests
 - existing CI currently relies on `pip install pre-commit` followed by `pre-commit run --all-files`
+- dedicated test execution must be based on an already-existing repository test command; do not invent a new test harness
 
 Execution requirements:
 1. Start by inspecting the tracked dependency files and any existing open pull requests created by this workflow.
@@ -68,15 +75,17 @@ Execution requirements:
 4. Review changelogs or release notes for every dependency you plan to update before editing files.
 5. If an update changes public behavior or requires code changes, adapt the repository code minimally and safely.
 6. Identify the repository modules or scripts affected by the selected update and inspect the related tests.
-7. Add or improve tests only when the dependency-driven code change touches behavior that is currently untested or under-tested.
+7. Add or improve tests only when the dependency-driven code change touches behavior that is currently untested or under-tested and an existing repository test command can verify those tests.
 8. Regenerate or synchronize any dependency metadata only when required by the repository's existing tooling.
 9. Run the repository's existing validation commands after making changes. Re-run them after any fix.
-10. Use the `create-pull-request` safe output only after all selected updates and tests pass.
+10. If a safe update would require new tests but the repository has no trustworthy existing test command you can reuse, call `noop` instead of creating an unverified PR.
+11. Use the `create-pull-request` safe output only after all selected updates and tests pass.
 
 Validation requirements:
 - use only validation commands already present in the repository
-- prefer the repository's existing validation flow before inventing new checks
-- include any test files you add in the validation run
+- always run `pre-commit run --all-files` before creating a pull request
+- run additional test commands only when they already exist in the repository workflow or can be directly inferred from existing checked-in tests without adding new tooling
+- do not add tests unless you can execute and pass the existing test command that covers them
 - ensure changed manifests remain formatted and consistent with the repository's current conventions
 
 Pull request requirements:
