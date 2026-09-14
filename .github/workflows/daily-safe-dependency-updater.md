@@ -55,6 +55,7 @@ safe-outputs:
       - .pre-commit-config.yaml
       - .pre-commit-hooks.yaml
       - tests/**/*.py
+      - checkazurebiceppython/**/*.py
 ---
 
 You are an automated software engineer and dependency security auditor for this repository.
