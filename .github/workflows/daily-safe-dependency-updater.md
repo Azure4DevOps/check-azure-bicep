@@ -34,7 +34,7 @@ network:
 safe-outputs:
   threat-detection: false
   create-pull-request:
-    base-branch: ${{ github.event.repository.default_branch || github.ref_name }}
+    base-branch: master
     title-prefix: "[safe-dep-update] "
     branch-prefix: "aw/daily-dep-update-"
     close-older-pull-requests: true
@@ -64,7 +64,7 @@ Goal:
 Repository context:
 - this repository is a Python-based pre-commit hook project
 - dependency sources include `requirements.txt`, `setup.py`, `.pre-commit-config.yaml`, and `.pre-commit-hooks.yaml`
-- the workflow should target the repository default branch for pull requests
+- the default branch is `master`, and pull requests must target `master`
 - existing CI currently relies on `pip install pre-commit` followed by `pre-commit run --all-files`
 - dedicated test execution must be based on an already-existing repository test command; do not invent a new test harness
 
