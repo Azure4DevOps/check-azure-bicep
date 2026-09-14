@@ -40,7 +40,7 @@ safe-outputs:
       - "README.md"
       - ".pre-commit-config.yaml"
       - ".pre-commit-hooks.yaml"
-      - "requirements*.txt"
+      - "requirements.txt"
       - "setup.py"
       - "pyproject.toml"
       - "setup.cfg"
