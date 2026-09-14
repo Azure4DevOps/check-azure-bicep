@@ -24,6 +24,7 @@ safe-outputs:
     draft: true
     protected-files: allowed
     allowed-files:
+      - "*.md"
       - "**/*.md"
 ---
 
