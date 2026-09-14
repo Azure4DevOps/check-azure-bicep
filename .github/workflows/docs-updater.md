@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
-  skip-if-match: 'is:pr is:open in:title "[docs] Documentation drift update"'
+  skip-if-match: 'is:pr is:open in:title "[docs] "'
 permissions:
   contents: read
   issues: read
