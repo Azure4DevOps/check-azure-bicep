@@ -26,7 +26,7 @@ safe-outputs:
 
 # Daily repository activity report
 
-Create a daily issue summarizing recent repository activity for `Azure4DevOps/check-azure-bicep`.
+Create a daily issue summarizing recent repository activity for the repository where this workflow runs.
 
 ## Reporting window
 
