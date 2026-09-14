@@ -36,7 +36,7 @@ network:
     - python
 
 safe-outputs:
-  threat-detection: false
+  threat-detection: true
   create-pull-request:
     base-branch: ${{ env.DEFAULT_BRANCH }}
     title-prefix: "[safe-dep-update] "
