@@ -5,11 +5,11 @@ on:
     - cron: "23 6 * * 1-5"
   workflow_dispatch:
 permissions:
+  actions: read
+  checks: read
   contents: read
   issues: read
   pull-requests: read
-  actions: read
-  checks: read
   copilot-requests: write
 concurrency:
   group: repository-maintainer
