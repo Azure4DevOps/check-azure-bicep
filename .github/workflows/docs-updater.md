@@ -22,10 +22,9 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[docs] "
     draft: true
-    protected-files: allowed
     allowed-files:
-      - "*.md"
-      - "**/*.md"
+      - ".github/**/*.md"
+      - "docs/**/*.md"
 ---
 
 # Documentation Drift Updater
@@ -33,8 +32,8 @@ safe-outputs:
 Review code changes merged in the last 24 hours and identify documentation that is now out of sync.
 
 Prioritize updates to user-facing Markdown documentation such as:
-- repository Markdown guides and examples
 - Markdown files under `/.github/`
+- Markdown files under `/docs/` when present
 
 Update only documentation files needed to reflect current behavior, commands, configuration, and examples.
 
