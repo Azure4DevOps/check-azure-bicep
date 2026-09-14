@@ -88,7 +88,7 @@ Execution requirements:
 
 Validation requirements:
 - use only validation commands already present in the repository
-- always run `pre-commit run --all-files` before creating a pull request
+- run `pre-commit run --all-files` before creating a pull request only when `.pre-commit-config.yaml` exists; otherwise call `noop` because this repository has no existing pre-commit validation command.
 - run additional test commands only when they already exist in the repository workflow or can be directly inferred from existing checked-in tests without adding new tooling
 - do not add tests unless you can execute and pass the existing test command that covers them
 - ensure changed manifests remain formatted and consistent with the repository's current conventions
