@@ -51,7 +51,7 @@ Objective: triage each newly opened issue in `${{ github.repository }}`.
 Use `gh` read commands only to gather context for the triggering issue `${{ github.event.issue.number }}`:
 
 - `gh issue view` for the triggering issue
-- `gh issue list` for open issues that may be duplicates
+- `gh issue list --state open --limit 1000` (paginate if more than the limit) for open issues that may be duplicates
 - `gh label list` for available labels
 - `gh api repos/${{ github.repository }}/collaborators?per_page=100` for assignable collaborators
 
